@@ -20,3 +20,5 @@ task 1 :
 <img width="1291" height="745" alt="Image" src="https://github.com/user-attachments/assets/c655541a-a74b-4716-afae-3e21bba48d5e" />
 task 2:
 <img width="862" height="651" alt="Image" src="https://github.com/user-attachments/assets/ac805ab4-1118-486c-ac93-d1237e7b22e5" />
+task 3 :
+<img width="1173" height="883" alt="Image" src="https://github.com/user-attachments/assets/d340e2c6-4acf-4302-9bdb-8f1e4816484c" />
