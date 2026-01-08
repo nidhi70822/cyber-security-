@@ -18,3 +18,5 @@ This repository contains the completed tasks for the CODTECH Cyber Security Inte
 
 task 1 :
 <img width="1291" height="745" alt="Image" src="https://github.com/user-attachments/assets/c655541a-a74b-4716-afae-3e21bba48d5e" />
+task 2:
+<img width="862" height="651" alt="Image" src="https://github.com/user-attachments/assets/ac805ab4-1118-486c-ac93-d1237e7b22e5" />
