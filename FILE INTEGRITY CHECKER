@@ -1,0 +1,50 @@
+import hashlib
+import os
+import json
+
+HASH_FILE = "hashes.json"
+
+def calculate_hash(file_path):
+    sha256 = hashlib.sha256()
+    with open(file_path, "rb") as f:
+        while chunk := f.read(4096):
+            sha256.update(chunk)
+    return sha256.hexdigest()
+
+def scan_directory(directory):
+    file_hashes = {}
+    for root, _, files in os.walk(directory):
+        for file in files:
+            path = os.path.join(root, file)
+            file_hashes[path] = calculate_hash(path)
+    return file_hashes
+
+def save_hashes(hashes):
+    with open(HASH_FILE, "w") as f:
+        json.dump(hashes, f, indent=4)
+
+def load_hashes():
+    if not os.path.exists(HASH_FILE):
+        return {}
+    with open(HASH_FILE, "r") as f:
+        return json.load(f)
+
+def check_integrity(directory):
+    old_hashes = load_hashes()
+    new_hashes = scan_directory(directory)
+
+    for file, new_hash in new_hashes.items():
+        if file not in old_hashes:
+            print(f"[NEW FILE] {file}")
+        elif old_hashes[file] != new_hash:
+            print(f"[MODIFIED] {file}")
+
+    for file in old_hashes:
+        if file not in new_hashes:
+            print(f"[DELETED] {file}")
+
+    save_hashes(new_hashes)
+
+if __name__ == "__main__":
+    folder = input("Enter directory to monitor: ")
+    check_integrity(folder)
